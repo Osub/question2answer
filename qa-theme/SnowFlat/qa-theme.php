@@ -75,6 +75,8 @@ class qa_html_theme extends qa_html_theme_base
         else
             $this->content['css_src'][] = '//fonts.googleapis.com/css?family=Ubuntu:400,700,400italic,700italic';
 
+        $this->content['css_src'][] = $this->rooturl . 'fa321/css/font-awesome.min.css';
+        $this->content['css_src'][] = $this->rooturl . 'fa321/css/font-awesome-ie7.min.css';
         parent::head_css();
         //固定底部
         $htmlcss = <<<EOT

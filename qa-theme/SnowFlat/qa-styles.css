@@ -1901,6 +1901,7 @@ input[type="submit"], button {
 
 .qa-form-tall-data {
     padding: 5px 0;
+    width: 100%;
 }
 
 .qa-form-wide-label {
