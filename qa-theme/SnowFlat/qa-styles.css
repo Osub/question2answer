@@ -3494,6 +3494,6 @@ input[type="submit"], button {
 .icon-power:before { content: '\e824'; }
 .icon-link:before { content: '\e825'; }
 
-.qa-form-tall-table{
+.qa-form-tall-table tbody{
     width: 50%;
 }
