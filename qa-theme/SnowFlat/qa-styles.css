@@ -1901,7 +1901,6 @@ input[type="submit"], button {
 
 .qa-form-tall-data {
     padding: 5px 0;
-    width: 100%;
 }
 
 .qa-form-wide-label {
@@ -3494,3 +3493,7 @@ input[type="submit"], button {
 .icon-reply:before { content: '\e823'; }
 .icon-power:before { content: '\e824'; }
 .icon-link:before { content: '\e825'; }
+
+.qa-form-tall-table{
+    width: 50%;
+}
