@@ -488,7 +488,7 @@ blockquote p {
 
 @media (min-width: 980px) {
     .qa-logo {
-        margin: 0 1px 0 0;
+        margin: 7px  0 0;
     }
 }
 
@@ -3493,7 +3493,3 @@ input[type="submit"], button {
 .icon-reply:before { content: '\e823'; }
 .icon-power:before { content: '\e824'; }
 .icon-link:before { content: '\e825'; }
-
-.qa-form-tall-table>tbody{
-    width: 50%;
-}
