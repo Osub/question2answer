@@ -54,9 +54,9 @@ class qa_html_theme_base
 
 
 	public function __construct($template, $content, $rooturl, $request)
-/*
-	Initialize the object and assign local variables
-*/
+		/*
+            Initialize the object and assign local variables
+        */
 	{
 		$this->template = $template;
 		$this->content = $content;
@@ -77,11 +77,11 @@ class qa_html_theme_base
 
 
 	public function output_array($elements)
-/*
-	Output each element in $elements on a separate line, with automatic HTML indenting.
-	This should be passed markup which uses the <tag/> form for unpaired tags, to help keep
-	track of indenting, although its actual output converts these to <tag> for W3C validation
-*/
+		/*
+            Output each element in $elements on a separate line, with automatic HTML indenting.
+            This should be passed markup which uses the <tag/> form for unpaired tags, to help keep
+            track of indenting, although its actual output converts these to <tag> for W3C validation
+        */
 	{
 		foreach ($elements as $element) {
 			$delta = substr_count($element, '<') - substr_count($element, '<!') - 2*substr_count($element, '</') - substr_count($element, '/>');
@@ -100,9 +100,9 @@ class qa_html_theme_base
 
 
 	public function output() // other parameters picked up via func_get_args()
-/*
-	Output each passed parameter on a separate line - see output_array() comments
-*/
+		/*
+            Output each passed parameter on a separate line - see output_array() comments
+        */
 	{
 		$args = func_get_args();
 		$this->output_array($args);
@@ -110,10 +110,10 @@ class qa_html_theme_base
 
 
 	public function output_raw($html)
-/*
-	Output $html at the current indent level, but don't change indent level based on the markup within.
-	Useful for user-entered HTML which is unlikely to follow the rules we need to track indenting
-*/
+		/*
+            Output $html at the current indent level, but don't change indent level based on the markup within.
+            Useful for user-entered HTML which is unlikely to follow the rules we need to track indenting
+        */
 	{
 		if (strlen($html))
 			echo str_repeat("\t", max(0, $this->indent)).$html."\n";
@@ -121,10 +121,10 @@ class qa_html_theme_base
 
 
 	public function output_split($parts, $class, $outertag='span', $innertag='span', $extraclass=null)
-/*
-	Output the three elements ['prefix'], ['data'] and ['suffix'] of $parts (if they're defined),
-	with appropriate CSS classes based on $class, using $outertag and $innertag in the markup.
-*/
+		/*
+            Output the three elements ['prefix'], ['data'] and ['suffix'] of $parts (if they're defined),
+            with appropriate CSS classes based on $class, using $outertag and $innertag in the markup.
+        */
 	{
 		if (empty($parts) && strtolower($outertag) != 'td')
 			return;
@@ -140,28 +140,28 @@ class qa_html_theme_base
 
 
 	public function set_context($key, $value)
-/*
-	Set some context, which be accessed via $this->context for a function to know where it's being used on the page
-*/
+		/*
+            Set some context, which be accessed via $this->context for a function to know where it's being used on the page
+        */
 	{
 		$this->context[$key] = $value;
 	}
 
 
 	public function clear_context($key)
-/*
-	Clear some context (used at the end of the appropriate loop)
-*/
+		/*
+            Clear some context (used at the end of the appropriate loop)
+        */
 	{
 		unset($this->context[$key]);
 	}
 
 
 	public function reorder_parts($parts, $beforekey=null, $reorderrelative=true)
-/*
-	Reorder the parts of the page according to the $parts array which contains part keys in their new order. Call this
-	before main_parts(). See the docs for qa_array_reorder() in util/sort.php for the other parameters.
-*/
+		/*
+            Reorder the parts of the page according to the $parts array which contains part keys in their new order. Call this
+            before main_parts(). See the docs for qa_array_reorder() in util/sort.php for the other parameters.
+        */
 	{
 		require_once QA_INCLUDE_DIR.'util/sort.php';
 
@@ -170,9 +170,9 @@ class qa_html_theme_base
 
 
 	public function widgets($region, $place)
-/*
-	Output the widgets (as provided in $this->content['widgets']) for $region and $place
-*/
+		/*
+            Output the widgets (as provided in $this->content['widgets']) for $region and $place
+        */
 	{
 		if (count(@$this->content['widgets'][$region][$place])) {
 			$this->output('<div class="qa-widgets-'.$region.' qa-widgets-'.$region.'-'.$place.'">');
@@ -194,9 +194,9 @@ class qa_html_theme_base
 	public function initialize() { }
 
 	public function finish()
-/*
-	Post-output cleanup. For now, check that the indenting ended right, and if not, output a warning in an HTML comment
-*/
+		/*
+            Post-output cleanup. For now, check that the indenting ended right, and if not, output a warning in an HTML comment
+        */
 	{
 		if ($this->indent) {
 			echo "<!--\nIt's no big deal, but your HTML could not be indented properly. To fix, please:\n".
@@ -220,7 +220,7 @@ class qa_html_theme_base
 
 	public function html()
 	{
-		$attribution = '<!-- Powered by Question2Answer - http://www.question2answer.org/ -->';
+		$attribution = '<!-- 阿里云强力驱动 - http://t.cn/zjxZrUk -->';
 		$this->output(
 			'<html>',
 			$attribution
@@ -835,7 +835,7 @@ class qa_html_theme_base
 
 		$this->output(
 			'<div class="qa-attribution">',
-			'Powered by <a href="http://www.question2answer.org/">Question2Answer</a>',
+			'<a href="http://t.cn/zjxZrUk">阿里云强力驱动</a>',
 			'</div>'
 		);
 	}
@@ -938,10 +938,10 @@ class qa_html_theme_base
 	}
 
 	public function form_reorder_fields(&$form, $keys, $beforekey=null, $reorderrelative=true)
-/*
-	Reorder the fields of $form according to the $keys array which contains the field keys in their new order. Call
-	before any fields are output. See the docs for qa_array_reorder() in util/sort.php for the other parameters.
-*/
+		/*
+            Reorder the fields of $form according to the $keys array which contains the field keys in their new order. Call
+            before any fields are output. See the docs for qa_array_reorder() in util/sort.php for the other parameters.
+        */
 	{
 		require_once QA_INCLUDE_DIR.'util/sort.php';
 
@@ -1117,10 +1117,10 @@ class qa_html_theme_base
 	}
 
 	public function form_reorder_buttons(&$form, $keys, $beforekey=null, $reorderrelative=true)
-/*
-	Reorder the buttons of $form according to the $keys array which contains the button keys in their new order. Call
-	before any buttons are output. See the docs for qa_array_reorder() in util/sort.php for the other parameters.
-*/
+		/*
+            Reorder the buttons of $form according to the $keys array which contains the button keys in their new order. Call
+            before any buttons are output. See the docs for qa_array_reorder() in util/sort.php for the other parameters.
+        */
 	{
 		require_once QA_INCLUDE_DIR.'util/sort.php';
 
@@ -1248,9 +1248,9 @@ class qa_html_theme_base
 
 		foreach ($field['options'] as $key => $value) {
 			$selected = isset($field['value']) && (
-				($matchbykey && $key === $field['value']) ||
-				(!$matchbykey && $value === $field['value'])
-			);
+					($matchbykey && $key === $field['value']) ||
+					(!$matchbykey && $value === $field['value'])
+				);
 			$this->output('<option value="' . $key . '"' . ($selected ? ' selected' : '') . '>' . $value . '</option>');
 		}
 
@@ -2348,9 +2348,9 @@ class qa_html_theme_base
 
 
 	public function q_title_list($q_list, $attrs=null)
-/*
-	Generic method to output a basic list of question links.
-*/
+		/*
+            Generic method to output a basic list of question links.
+        */
 	{
 		$this->output('<ul class="qa-q-title-list">');
 		foreach ($q_list as $q) {
@@ -2364,9 +2364,9 @@ class qa_html_theme_base
 	}
 
 	public function q_ask_similar($q_list, $pretext='')
-/*
-	Output block of similar questions when asking.
-*/
+		/*
+            Output block of similar questions when asking.
+        */
 	{
 		if (!count($q_list))
 			return;
