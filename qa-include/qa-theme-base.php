@@ -220,7 +220,7 @@ class qa_html_theme_base
 
 	public function html()
 	{
-		$attribution = '<!-- 阿里云强力驱动 - http://t.cn/zjxZrUk -->';
+		$attribution = '<!-- 阿里云强力驱动 - http://s.click.taobao.com/t?e=m%3D2%26s%3Doq4lJoOtJAscQipKwQzePCperVdZeJviEViQ0P1Vf2kguMN8XjClAtDiezMDwtFG1A3MegFRtzNOEZ4OR9KJ4Gwy3C7Jg1jaktQ1TRnck5LA6bVntDTxlTDVuRn8ddiDsEVVC24eqozcHtRpEUy6RHVyxRO0gvF4QxJtmCgOmCLXl8Q7TEjBF%2BX11FSyvDCnQiv%2BJKjlPObGDmntuH4VtA%3D%3D -->';
 		$this->output(
 			'<html>',
 			$attribution
@@ -835,7 +835,7 @@ class qa_html_theme_base
 
 		$this->output(
 			'<div class="qa-attribution">',
-			'<a href="http://t.cn/zjxZrUk">阿里云强力驱动</a>',
+			'<a href="http://s.click.taobao.com/t?e=m%3D2%26s%3Doq4lJoOtJAscQipKwQzePCperVdZeJviEViQ0P1Vf2kguMN8XjClAtDiezMDwtFG1A3MegFRtzNOEZ4OR9KJ4Gwy3C7Jg1jaktQ1TRnck5LA6bVntDTxlTDVuRn8ddiDsEVVC24eqozcHtRpEUy6RHVyxRO0gvF4QxJtmCgOmCLXl8Q7TEjBF%2BX11FSyvDCnQiv%2BJKjlPObGDmntuH4VtA%3D%3D">阿里云强力驱动</a>',
 			'</div>'
 		);
 	}
